@@ -6,17 +6,85 @@
   <title>Switch Sprint — 2-Minute Task-Switching Game</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- Link to CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HTML div structs (the .wrap, overlays, etc.) -->
-  
-  <!-- Link to JS file -->
+  <div class="wrap">
+    <header>
+      <div class="brand">SWITCH <span>SP</span><em>RINT</em></div>
+      <div class="hud">
+        <div> <b id="timer">2:00</b></div>
+        <div>✓ <b id="score">0</b></div>
+      </div>
+    </header>
+
+    <div class="block" id="block1" aria-label="Top block">
+      <div class="stim math"><div class="label">Problem</div><div class="value" id="b1-math">3 + 4</div></div>
+      <div class="divider"></div>
+      <div class="stim arrows"><div class="label">Arrows</div>
+        <div class="sets">
+          <div class="row" id="b1-arr1">↑ ↓ ← →</div>
+          <div class="gap"></div>
+          <div class="row" id="b1-arr2">↑ ↓ ← →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="block2" aria-label="Bottom block">
+      <div class="stim math"><div class="label">Problem</div><div class="value" id="b2-math">3 + 4</div></div>
+      <div class="divider"></div>
+      <div class="stim arrows"><div class="label">Arrows</div>
+        <div class="sets">
+          <div class="row" id="b2-arr1">↑ ↓ ← →</div>
+          <div class="gap"></div>
+          <div class="row" id="b2-arr2">↑ ↓ ← →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question" id="qbar">
+      <div id="qtext" aria-live="polite">Press start</div>
+      <div class="answers">
+        <button id="btnYes">YES <kbd>Y key</kbd></button>
+        <button id="btnNo">NO <kbd>N key</kbd></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- start screen -->
+  <div class="overlay" id="startOverlay">
+    <div class="panel">
+      <h1>SWITCH <span>SP</span><em>RINT</em></h1>
+      <p>Both blocks show the same problem and the same two arrow sets. One block lights up each round — which block it is decides your task:</p>
+      <div class="rule m"><div class="dot"></div><div><b>Top block lit</b> → Is the answer to the sum odd?</div></div>
+      <div class="rule a"><div class="dot"></div><div><b>Bottom block lit</b> → Are the two sets of arrows the same?</div></div>
+      <p>Answer with the buttons or the <b>Y</b> / <b>N</b> keys. You have 2 minutes — how many can you get right?</p>
+      <button id="btnStart">Start</button>
+    </div>
+  </div>
+
+  <!-- end screen -->
+  <div class="overlay hidden" id="endOverlay">
+    <div class="panel">
+      <h1>Time!</h1>
+      <div class="stats">
+        <div class="stat"><b id="endScore">0</b><span>Correct</span></div>
+        <div class="stat"><b id="endAcc">0%</b><span>Accuracy</span></div>
+        <div class="stat"><b id="endStreak">0</b><span>Best streak</span></div>
+      </div>
+      <div class="save-row" id="saveRow">
+        <input id="playerName" maxlength="12" placeholder="Your name" aria-label="Your name for the leaderboard">
+        <button class="small" id="btnSave">Save score</button>
+      </div>
+      <div class="lb">
+        <h2>Leaderboard — this browser</h2>
+        <ol id="lbList"></ol>
+      </div>
+      <button id="btnAgain">Play again</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
-<!-- triggering rebuild -->
-<!-- triggering rebuild -->
+git add index.html
